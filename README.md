@@ -46,6 +46,7 @@ Currently pursuing a PhD in Computer Science with a focus on AI & Machine Learni
 ![Azure Solutions Architect Expert](https://img.shields.io/badge/Certification-Azure%20Solutions%20Architect%20Expert-blue?logo=microsoft-azure&logoColor=white)
 ![Terraform Associate](https://img.shields.io/badge/Certification-Terraform%20Associate-844FBA?logo=terraform&logoColor=white)
 ![CKA](https://img.shields.io/badge/Certification-CKA-326ce5?logo=kubernetes&logoColor=white)
+![PhD-CS](https://img.shields.io/badge/PhD-Computer%20Science%20(In%20Progress)-lightgrey)
 
 ---
 
