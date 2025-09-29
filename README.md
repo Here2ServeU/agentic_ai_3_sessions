@@ -1,4 +1,4 @@
-# Agentic AI in DevOps — 3-Session Bootcamp
+# Agentic AI in DevOps: A 3-Session Bootcamp
 
 Welcome to the Agentic AI Bootcamp!  
 This is a hands-on program for **complete beginners**.  
