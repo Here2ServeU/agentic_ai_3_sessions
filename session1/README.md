@@ -18,7 +18,6 @@ This script asks AI to generate a Kubernetes Deployment YAML.
 - Define function `ask_llm` to talk to the AI.
 - If using OpenAI, send prompt and return reply.
 - If using Ollama, run local model.
-- Finally, print a Deployment YAML for an Express app.
 
 ---
 
