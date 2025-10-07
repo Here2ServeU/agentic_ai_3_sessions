@@ -1,36 +1,76 @@
-# Session 1 — Setup + Log Troubleshooting
+# Agentic AI in DevOps: A 3-Session Bootcamp
 
-## Overview
-In this session, you’ll:
-- Install Python and AI libraries
-- Run your first AI agent (`agent_unified.py`) to generate Kubernetes YAML
-- Build a log-troubleshooting agent (`agent_log_troubleshooter.py`) to analyze system logs
+Welcome to the Agentic AI Bootcamp! This is a hands-on program designed for complete beginners to learn how to integrate AI into real-world DevOps workflows.
 
----
+## Prerequisites
 
-## Script 1: `agent_unified.py`
+To get started, you'll need the following:
+
+1. **Python 3**: Ensure you have Python 3 installed on your system. You can download it from the official Python website: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+2. **Git**: Install Git, a version control system, on your machine. You can download it from the official Git website: [https://git-scm.com/downloads](https://git-scm.com/downloads)
+3. **OpenAI API Key**: Obtain an API key from the OpenAI platform to use their AI models. You can sign up and create a key at [https://openai.com/](https://openai.com/)
+4. **(Optional) Ollama**: If you'd like to use the Ollama AI model instead of OpenAI, you'll need to install it. You can find instructions at [https://github.com/anthropic-research/ollama](https://github.com/anthropic-research/ollama)
+
+## Getting Started
+
+1. **Clone the Repository**:
+```bash
+git clone https://github.com/Here2ServeU/agentic_ai_3_sessions.git
+cd agentic_ai_3_sessions
+```
+
+2. **Set the OpenAI API Key**:
+```bash
+export OPENAI_API_KEY=your_openai_api_key
+```
+
+3. **Run the Scripts**:
+
+a. Using OpenAI:
+   ```
+   cd session1
+   python3 agent_unified.py
+   python3 agent_log_troubleshooter.py
+   ```
+
+b. Using Ollama:
+   ```
+   cd session1
+   export AGENT_BACKEND=ollama
+   python3 agent_unified.py
+   python3 agent_log_troubleshooter.py
+   ```
+
+## Session 1 — Setup + Log Troubleshooting
+
+In this session, you'll learn how to:
+
+1. **Run your first AI agent (agent_unified.py)** to generate Kubernetes YAML
+2. **Build a log-troubleshooting agent (agent_log_troubleshooter.py)** to analyze system logs
+
+### Script 1: agent_unified.py
 
 This script asks AI to generate a Kubernetes Deployment YAML.
 
-### Explanation
-- Import libraries (`os`, `subprocess`, `OpenAI`).
-- Check if backend is `openai` or `ollama`.
-- Define function `ask_llm` to talk to the AI.
-- If using OpenAI, send prompt and return reply.
-- If using Ollama, run local model.
+**Explanation**:
+1. Import libraries (os, subprocess, OpenAI).
+2. Check if the backend is OpenAI or Ollama.
+3. Define the `ask_llm` function to talk to the AI.
+4. If using OpenAI, send the prompt and return the reply.
+5. If using Ollama, run the local model.
 
----
+### Script 2: agent_log_troubleshooter.py
 
-## Script 2: `agent_log_troubleshooter.py`
+This script collects Linux system information and asks the AI to diagnose problems.
 
-This script collects Linux system info and asks AI to diagnose problems.
+**Explanation**:
+1. Import libraries.
+2. Define the helper `sh()` function to run shell commands.
+3. Define the `gather()` function to collect system data (disk, memory, uptime, logs, errors).
+4. Send the combined data to the AI using `ask_llm`.
+5. Print the AI's troubleshooting summary and commands.
 
-### Explanation
-- Import libraries.
-- Define helper `sh()` to run shell commands.
-- Define `gather()` to collect system data (disk, memory, uptime, logs, errors).
-- Send this combined data to the AI using `ask_llm`.
-- Print AI’s troubleshooting summary and commands.
+**Remember, you can switch between OpenAI and Ollama by setting the `AGENT_BACKEND` environment variable. Enjoy your journey into the world of Agentic AI in DevOps!**
 
 ---
 
