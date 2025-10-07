@@ -11,35 +11,6 @@ To get started, you'll need the following:
 3. **OpenAI API Key**: Obtain an API key from the OpenAI platform to use their AI models. You can sign up and create a key at [https://openai.com/](https://openai.com/)
 4. **(Optional) Ollama**: If you'd like to use the Ollama AI model instead of OpenAI, you'll need to install it. You can find instructions at [https://github.com/anthropic-research/ollama](https://github.com/anthropic-research/ollama)
 
-## Getting Started
-
-1. **Clone the Repository**:
-```bash
-git clone https://github.com/Here2ServeU/agentic_ai_3_sessions.git
-cd agentic_ai_3_sessions
-```
-
-2. **Set the OpenAI API Key**:
-```bash
-export OPENAI_API_KEY=your_openai_api_key
-```
-
-3. **Run the Scripts**:
-
-a. Using OpenAI:
-   ```
-   cd session1
-   python3 agent_unified.py
-   python3 agent_log_troubleshooter.py
-   ```
-
-b. Using Ollama:
-   ```
-   cd session1
-   export AGENT_BACKEND=ollama
-   python3 agent_unified.py
-   python3 agent_log_troubleshooter.py
-   ```
 
 ## Session 1 — Setup + Log Troubleshooting
 
@@ -69,6 +40,36 @@ This script collects Linux system information and asks the AI to diagnose proble
 3. Define the `gather()` function to collect system data (disk, memory, uptime, logs, errors).
 4. Send the combined data to the AI using `ask_llm`.
 5. Print the AI's troubleshooting summary and commands.
+
+## Getting Started
+
+1. **Clone the Repository**:
+```bash
+git clone https://github.com/Here2ServeU/agentic_ai_3_sessions.git
+cd agentic_ai_3_sessions
+```
+
+2. **Set the OpenAI API Key**:
+```bash
+export OPENAI_API_KEY=your_openai_api_key
+```
+
+3. **Run the Scripts**:
+
+a. Using OpenAI:
+   ```
+   cd session1
+   python3 agent_unified.py
+   python3 agent_log_troubleshooter.py
+   ```
+
+b. Using Ollama:
+   ```
+   cd session1
+   export AGENT_BACKEND=ollama
+   python3 agent_unified.py
+   python3 agent_log_troubleshooter.py
+   ```
 
 **Remember, you can switch between OpenAI and Ollama by setting the `AGENT_BACKEND` environment variable. Enjoy your journey into the world of Agentic AI in DevOps!**
 
