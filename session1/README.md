@@ -98,6 +98,12 @@ b. Using Ollama:
 
 **Remember, you can switch between OpenAI and Ollama by setting the `AGENT_BACKEND` environment variable. Enjoy your journey into the world of Agentic AI in DevOps!**
 
+5. **Clean Up**
+* Use the following command to destroy your EC2 instance:
+```bash
+terraform destroy -auto-approve
+```
+
 ---
 
 ## About Me  
