@@ -10,6 +10,8 @@ To get started, you'll need the following:
 2. **Git**: Install Git, a version control system, on your machine. You can download it from the official Git website: [https://git-scm.com/downloads](https://git-scm.com/downloads)
 3. **OpenAI API Key**: Obtain an API key from the OpenAI platform to use their AI models. You can sign up and create a key at [https://openai.com/](https://openai.com/)
 4. **(Optional) Ollama**: If you'd like to use the Ollama AI model instead of OpenAI, you'll need to install it. You can find instructions at [https://github.com/anthropic-research/ollama](https://github.com/anthropic-research/ollama)
+5. **Terraform**: Download and install Terraform, an Infrastructure as Code (IaC) tool, from the official HashiCorp website: https://www.terraform.io/downloads.html
+6. **AWS CLI**: Set up the AWS Command Line Interface (CLI) on your machine. You can find the instructions on the AWS documentation: https://aws.amazon.com/cli/
 
 
 ## Session 1 — Setup + Log Troubleshooting
@@ -43,18 +45,41 @@ This script collects Linux system information and asks the AI to diagnose proble
 
 ## Getting Started
 
-1. **Clone the Repository**:
+1.**Terraform Setup**:
+* Create a new directory for your DevOps project.
+* Inside the directory, create a new file named main.tf.
+* Add the following Terraform code to provision an EC2 instance:
+```bash
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "devops_instance" {
+  ami           = "ami-0aa7d40eeae50c9a9" # Amazon Linux 2 AMI
+  instance_type = "t2.micro"
+  key_name      = "your-ec2-key-pair"
+
+  tags = {
+    Name = "DevOps-Instance"
+  }
+}
+```
+* Replace "your-ec2-key-pair" with the name of your existing EC2 key pair or create a new one.
+* Run terraform init to initialize the Terraform working directory.
+* Run terraform apply to provision the EC2 instance.
+
+2. **Clone the Repository**:
 ```bash
 git clone https://github.com/Here2ServeU/agentic_ai_3_sessions.git
 cd agentic_ai_3_sessions
 ```
 
-2. **Set the OpenAI API Key**:
+3. **Set the OpenAI API Key**:
 ```bash
 export OPENAI_API_KEY=your_openai_api_key
 ```
 
-3. **Run the Scripts**:
+4. **Run the Scripts**:
 
 a. Using OpenAI:
    ```
