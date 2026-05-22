@@ -1,0 +1,5 @@
+# Python dependencies for all three bootcamp sessions.
+# Install once from the repo root with:  pip install -r requirements.txt
+
+openai>=1.0.0      # Session 1, 2, 3 — talks to the OpenAI API
+boto3>=1.28.0      # Session 2 — reads AWS Cost Explorer data (FinOps)
