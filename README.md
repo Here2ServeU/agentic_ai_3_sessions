@@ -10,9 +10,25 @@ You’ll learn how to:
 
 Each session folder includes:
 - A **README.md** explaining scripts line by line.
+- A runnable **`run.sh`** — one script per day that runs that session's exercises.
 - Scripts and YAML you can run immediately.
 
 By the end, you’ll understand how to integrate Agentic AI into real-world DevOps workflows.
+
+---
+
+## Quick Start
+
+New here? Follow **[GUIDE.md](GUIDE.md)** — it covers one-time setup and the single
+`run.sh` script for each day:
+
+```bash
+pip install -r requirements.txt
+export OPENAI_API_KEY=sk-...      # or: export AGENT_BACKEND=ollama
+cd session1 && ./run.sh           # Day 1
+cd ../session2 && ./run.sh        # Day 2
+cd ../session3 && ./run.sh        # Day 3  (use ./run.sh --cleanup when done)
+```
 
 ---
 
