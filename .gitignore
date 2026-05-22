@@ -1,0 +1,14 @@
+# Python build leftovers (safe to ignore)
+__pycache__/
+*.pyc
+
+# Virtual environment (the "clean box" from GUIDE.md, Step 2)
+.venv/
+venv/
+
+# Secrets — never commit your keys or env files!
+.env
+*.env
+
+# Scan output created during Session 2
+session2/trivy_nginx.json

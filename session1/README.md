@@ -1,55 +1,168 @@
-# Agentic AI in DevOps: Session One
+# Day 1 — Your First AI Helper + Reading Logs
 
-Welcome to the Agentic AI Bootcamp! This is a hands-on program designed for complete beginners to learn how to integrate AI into real-world DevOps workflows.
+Welcome to Day 1! Today you build your **very first AI helper**. By the end,
+you'll have made a helper that writes computer settings, and another that reads a
+computer's "diary" to find problems.
 
-## Prerequisites
+> New words ahead? The **[Word Helper (Glossary)](../GLOSSARY.md)** explains them all.
 
-To get started, you'll need the following:
+---
 
-1. **Python 3**: Ensure you have Python 3 installed on your system. You can download it from the official Python website: [https://www.python.org/downloads/](https://www.python.org/downloads/)
-2. **Git**: Install Git, a version control system, on your machine. You can download it from the official Git website: [https://git-scm.com/downloads](https://git-scm.com/downloads)
-3. **OpenAI API Key**: Obtain an API key from the OpenAI platform to use their AI models. You can sign up and create a key at [https://openai.com/](https://openai.com/)
-4. **(Optional) Ollama**: If you'd like to use the Ollama AI model instead of OpenAI, you'll need to install it. You can find instructions at [https://github.com/anthropic-research/ollama](https://github.com/anthropic-research/ollama)
-5. **Terraform**: Download and install Terraform, an Infrastructure as Code (IaC) tool, from the official HashiCorp website: https://www.terraform.io/downloads.html
-6. **AWS CLI**: Set up the AWS Command Line Interface (CLI) on your machine. You can find the instructions on the AWS documentation: https://aws.amazon.com/cli/
+## What You'll Do Today
 
+1. Run your **first AI helper** (`agent_unified.py`). It writes a Kubernetes
+   settings file for you.
+2. Build a **log-reading helper** (`agent_log_troubleshooter.py`). It reads your
+   computer's logs and tells you what looks wrong.
 
-## Session 1 — Setup + Log Troubleshooting
+Think of these helpers like smart interns. You give them a task, and they do the
+boring reading and thinking, then hand you the answer.
 
-In this session, you'll learn how to:
+---
 
-1. **Run your first AI agent (agent_unified.py)** to generate Kubernetes YAML
-2. **Build a log-troubleshooting agent (agent_log_troubleshooter.py)** to analyze system logs
+## How It Works (The Big Picture)
 
-### Script 1: agent_unified.py
+Both of today's helpers follow the same simple path: **something goes in, the
+helper sends it to an AI brain, and an answer comes out.** (These pictures show
+up automatically on GitHub.)
 
-This script asks AI to generate a Kubernetes Deployment YAML.
+**Helper 1 — `agent_unified.py`** writes a settings file for you:
 
-**Explanation**:
-1. Import libraries (os, subprocess, OpenAI).
-2. Check if the backend is OpenAI or Ollama.
-3. Define the `ask_llm` function to talk to the AI.
-4. If using OpenAI, send the prompt and return the reply.
-5. If using Ollama, run the local model.
+```mermaid
+flowchart LR
+    A["You ask:<br/>make a Kubernetes Deployment"] --> B["agent_unified.py<br/>(the ask_llm step)"]
+    B --> C["AI brain<br/>OpenAI or Ollama"]
+    C --> D["Answer:<br/>Kubernetes YAML"]
+```
 
-### Script 2: agent_log_troubleshooter.py
+**Helper 2 — `agent_log_troubleshooter.py`** finds problems in your logs:
 
-This script collects Linux system information and asks the AI to diagnose problems.
+```mermaid
+flowchart LR
+    A["Your computer's logs<br/>disk, memory, errors"] --> B["gather()<br/>collects the clues"]
+    B --> C["agent_log_troubleshooter.py<br/>(the ask_llm step)"]
+    C --> D["AI brain<br/>OpenAI or Ollama"]
+    D --> E["Answer:<br/>Summary, Findings, Commands"]
+```
 
-**Explanation**:
-1. Import libraries.
-2. Define the helper `sh()` function to run shell commands.
-3. Define the `gather()` function to collect system data (disk, memory, uptime, logs, errors).
-4. Send the combined data to the AI using `ask_llm`.
-5. Print the AI's troubleshooting summary and commands.
+---
 
-## Getting Started
+## What You Need First
 
-1.**Terraform Setup**:
-* Create a new directory for your DevOps project.
-* Inside the directory, create a new file named main.tf.
-* Add the following Terraform code to provision an EC2 instance:
+You only need a couple of things. The **[GUIDE.md](../GUIDE.md)** shows how to get each one.
+
+| You need... | Why | Where to get it |
+|-------------|-----|-----------------|
+| **Python 3** | runs the helpers | <https://www.python.org/downloads/> |
+| **An AI brain** | so the helper can think | OpenAI key, *or* free Ollama: <https://ollama.com> |
+| **Git** *(to download the course)* | copies the project to your computer | <https://git-scm.com/downloads> |
+
+> The other tools you may have heard of (Terraform, AWS CLI) are **not** needed
+> for Day 1. We'll meet some of them later.
+
+---
+
+## The Easy Way to Run Day 1
+
+The simplest path is the "start button." From the `session1` folder, type:
+
 ```bash
+./run.sh
+```
+
+That one command checks your tools, installs the pieces, and runs both helpers
+in order. If you'd rather run them yourself, see "The Manual Way" below.
+
+---
+
+## Helper 1: `agent_unified.py` — Write Kubernetes Settings
+
+**What it does:** You ask the AI for a Kubernetes *Deployment* (the file that
+says "keep my app running"), and it writes one for you.
+
+**How it works, step by step:**
+
+1. It loads a few tools it needs (built into Python).
+2. It checks which AI brain you picked — OpenAI or Ollama.
+3. It has a small function called `ask_llm` whose only job is to send your
+   question to the AI and bring back the answer (like a waiter taking your
+   order to the kitchen).
+4. If you picked OpenAI, it sends the question over the internet and reads the reply.
+5. If you picked Ollama, it asks the AI brain running on your own computer instead.
+
+The question it asks is:
+
+> *"Generate a Kubernetes Deployment for an Express app on port 3000 with 2 replicas."*
+
+In plain words: *"Write me the settings to run my web app, and keep 2 copies of
+it alive."* The AI writes that file for you.
+
+---
+
+## Helper 2: `agent_log_troubleshooter.py` — Find Problems in Logs
+
+**What it does:** Your computer keeps *logs* — a diary of what happened,
+including errors. This helper gathers that diary and asks the AI, "What's wrong,
+and how do I fix it?" It's like a doctor reading your symptoms.
+
+**How it works, step by step:**
+
+1. It loads its tools.
+2. It has a tiny helper called `sh()` that runs a command and grabs the result.
+3. It has a function called `gather()` that collects facts about your computer:
+   - How full the disk is
+   - How much memory is used
+   - How long it's been on
+   - Recent errors and warnings from the system logs
+4. It sends all of that to the AI using `ask_llm()`.
+5. The AI prints back a **Summary**, the **Top Findings**, and the **exact
+   commands** to fix the issues.
+
+> This is exactly how real engineers use AI — feed it the clues, get back a
+> diagnosis and a fix.
+
+---
+
+## The Manual Way (run each helper yourself)
+
+Prefer to type the commands yourself? Here's how.
+
+**Step 1 — Get the course (if you haven't yet):**
+
+```bash
+git clone https://github.com/Here2ServeU/agentic_ai_3_sessions.git
+cd agentic_ai_3_sessions/session1
+```
+
+**Step 2 — Give your helper a brain.** Pick ONE:
+
+```bash
+export OPENAI_API_KEY=your_openai_api_key   # OpenAI
+# --- or ---
+export AGENT_BACKEND=ollama                 # free, on your computer
+```
+
+**Step 3 — Run the helpers:**
+
+```bash
+python3 agent_unified.py
+python3 agent_log_troubleshooter.py
+```
+
+You can switch brains any time by changing the `AGENT_BACKEND` note. No code
+changes needed. 
+
+---
+
+## Optional Bonus: Make a Real Server with Terraform
+
+Want to try something extra? **Terraform** is a tool that builds cloud servers
+from a text file. This is optional and **not** required for the lesson — skip it
+if you're just getting started.
+
+Create a file named `main.tf` with this inside:
+
+```hcl
 provider "aws" {
   region = "us-east-1"
 }
@@ -64,71 +177,25 @@ resource "aws_instance" "devops_instance" {
   }
 }
 ```
-* Replace "your-ec2-key-pair" with the name of your existing EC2 key pair or create a new one.
-* Run terraform init to initialize the Terraform working directory.
-* Run terraform apply to provision the EC2 instance.
 
-2. **Clone the Repository**:
-```bash
-git clone https://github.com/Here2ServeU/agentic_ai_3_sessions.git
-cd agentic_ai_3_sessions
-```
+- Replace `"your-ec2-key-pair"` with the name of your AWS key pair.
+- Run `terraform init` to get ready.
+- Run `terraform apply` to build the server.
 
-3. **Set the OpenAI API Key**:
-```bash
-export OPENAI_API_KEY=your_openai_api_key
-```
+**Clean up when done** so you don't pay for a server you're not using:
 
-4. **Run the Scripts**:
-
-a. Using OpenAI:
-   ```
-   cd session1
-   python3 agent_unified.py
-   python3 agent_log_troubleshooter.py
-   ```
-
-b. Using Ollama:
-   ```
-   cd session1
-   export AGENT_BACKEND=ollama
-   python3 agent_unified.py
-   python3 agent_log_troubleshooter.py
-   ```
-
-**Remember, you can switch between OpenAI and Ollama by setting the `AGENT_BACKEND` environment variable. Enjoy your journey into the world of Agentic AI in DevOps!**
-
-5. **Clean Up**
-* Use the following command to destroy your EC2 instance:
 ```bash
 terraform destroy -auto-approve
 ```
 
 ---
 
-## About Me  
+## Day 1 Done
 
-DevOps, Cloud, and SRE Engineer with AI integration expertise.  
-Currently pursuing a PhD in Computer Science (AI & ML in Healthcare, Cloud, and DevOps).  
-
----
-
-## Skills & Certifications  
-
-![AWS](https://img.shields.io/badge/AWS-orange?logo=amazon-aws&logoColor=white)
-![Azure](https://img.shields.io/badge/Azure-blue?logo=microsoft-azure&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326ce5?logo=kubernetes&logoColor=white)
-![Terraform](https://img.shields.io/badge/Terraform-844FBA?logo=terraform&logoColor=white)
-![OpenAI](https://img.shields.io/badge/AI-OpenAI-412991?logo=openai&logoColor=white)
-
-![AWS Solutions Architect](https://img.shields.io/badge/Cert-AWS%20SA-orange?logo=amazon-aws&logoColor=white)
-![Azure Solutions Architect Expert](https://img.shields.io/badge/Cert-Azure%20SA%20Expert-blue?logo=microsoft-azure&logoColor=white)
-![Terraform Associate](https://img.shields.io/badge/Cert-Terraform%20Assoc-844FBA?logo=terraform&logoColor=white)
-![CKA](https://img.shields.io/badge/Cert-CKA-326ce5?logo=kubernetes&logoColor=white)
-![PhD-CS](https://img.shields.io/badge/PhD-CS%20(In%20Progress)-lightgrey)
+Great job — you just built and ran your first AI helpers! When you're ready,
+head to **[Day 2](../session2/README.md)** to use AI for security and saving money.
 
 ---
 
+*Made by Emmanuel Naweji — read his story in [BIO.md](../BIO.md).*
 [LinkedIn](https://linkedin.com/in/ready2assist) | [GitHub](https://github.com/Here2ServeU)
-
----
