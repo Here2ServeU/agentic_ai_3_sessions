@@ -20,13 +20,13 @@ Grafana.** Today a lot of my focus is on the newest piece of the puzzle:
 teaching AI to help us do this work faster and more safely.
 
 I'm also pursuing a **PhD in Computer Science**, with a focus on **AI and
-Machine Learning in Healthcare, Cloud, and DevOps.** That research keeps me
-close to the cutting edge — and reminds me every day how powerful these ideas
+Machine Learning, and Robotics in Healthcare, Cloud, and DevOps.** That research keeps me
+close to the cutting edge, and reminds me every day how powerful these ideas
 become when they're explained simply.
 
 ## Why I Teach
 
-The best part of my work isn't the code — it's the moment a learner says, "Oh!
+The best part of my work isn't the code, it's the moment a learner says, "Oh!
 Now I get it." I love mentoring beginners and walking with people from "I have
 no idea what this means" to "I just built my first AI agent." That's exactly
 what this course is for.
@@ -40,30 +40,10 @@ I mentor.
 
 - **Roles:** DevOps, Cloud, Infrastructure, and SRE Engineering, with a focus on AI integration
 - **Education:** PhD in Computer Science (AI & ML in Healthcare, Cloud, and DevOps) — *in progress*
-- **Certifications:**
-  - AWS Certified Solutions Architect
-  - Microsoft Azure Solutions Architect Expert
-  - HashiCorp Terraform Associate
-  - Certified Kubernetes Administrator (CKA)
-
-## Skills & Tools
-
-![AWS](https://img.shields.io/badge/Cloud-AWS-orange?logo=amazon-aws&logoColor=white)
-![Azure](https://img.shields.io/badge/Cloud-Azure-blue?logo=microsoft-azure&logoColor=white)
-![GCP](https://img.shields.io/badge/Cloud-GCP-blue?logo=google-cloud&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Orchestration-Kubernetes-326ce5?logo=kubernetes&logoColor=white)
-![Docker](https://img.shields.io/badge/Containers-Docker-2496ED?logo=docker&logoColor=white)
-![Terraform](https://img.shields.io/badge/IaC-Terraform-844FBA?logo=terraform&logoColor=white)
-![ArgoCD](https://img.shields.io/badge/GitOps-ArgoCD-ff6600?logo=argo&logoColor=white)
-![Jenkins](https://img.shields.io/badge/CI/CD-Jenkins-d24939?logo=jenkins&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub%20Actions-2088FF?logo=github-actions&logoColor=white)
-![Prometheus](https://img.shields.io/badge/Monitoring-Prometheus-E6522C?logo=prometheus&logoColor=white)
-![Grafana](https://img.shields.io/badge/Monitoring-Grafana-F46800?logo=grafana&logoColor=white)
-![OpenAI](https://img.shields.io/badge/AI-OpenAI-412991?logo=openai&logoColor=white)
 
 ## Let's Connect
 
 If this course helps you, I'd love to hear about it. Reach out, say hello, and
 tell me what you built.
 
-[LinkedIn](https://linkedin.com/in/ready2assist) | [GitHub](https://github.com/Here2ServeU)
+[LinkedIn](https://linkedin.com/in/ready2assist) | [GitHub](https://github.com/Here2ServeU) | [Website](https://www.emmanuelnaweji.com/) | [X](https://x.com/EmmanuelNaweji)
